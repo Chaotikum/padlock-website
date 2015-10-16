@@ -1,0 +1,33 @@
+body {
+  background: #111;
+}
+
+.locks {
+  list-style: none;
+  padding: 0;
+}
+
+.locks li {
+  background: #fff;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  position: relative;
+}
+
+.locks button {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+}
+
+.error {
+  color: #f00;
+}
+
+.warning {
+  color: #f80;
+}
+
+button {
+  height: 4em;
+}
