@@ -14,7 +14,7 @@ body {
   position: relative;
 }
 
-.locks button {
+.locks .buttons {
   position: absolute;
   bottom: 1em;
   right: 1em;

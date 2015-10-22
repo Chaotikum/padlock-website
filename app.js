@@ -10,7 +10,11 @@ function main() {
 
     data.forEach(function (d) {
       var lock = document.createElement("li")
-      var button = document.createElement("button")
+      var buttons = document.createElement("div")
+      var buttonLock = document.createElement("button")
+      var buttonUnlock = document.createElement("button")
+
+      buttons.classList.add("buttons")
 
       var h = document.createElement("h1")
       h.textContent = d.name
@@ -43,18 +47,29 @@ function main() {
         lock.appendChild(bat)
       }
 
-      button.onclick = function () {
+      buttonLock.onclick = function () {
         var url = '/api/lock/' + d.id
         var req = new XMLHttpRequest()
 
         req.open('PUT', url)
-        req.send(d.locked ? "unlock" : "lock")
+        req.send('lock')
       }
 
-      lock.appendChild(button)
+      buttonUnlock.onclick = function () {
+        var url = '/api/lock/' + d.id
+        var req = new XMLHttpRequest()
+
+        req.open('PUT', url)
+        req.send('unlock')
+      }
+
+      buttons.appendChild(buttonLock)
+      buttons.appendChild(buttonUnlock)
+      lock.appendChild(buttons)
       locks.appendChild(lock)
 
-      button.textContent = d.locked ? "Aufschließen" : "Abschließen"
+      buttonLock.textContent = "🔒 zu"
+      buttonUnlock.textContent = "🔓 auf"
     })
   }
 
